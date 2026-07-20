@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: https://dev.seeclickfix.com/v2/overview/authentication/
+docs: https://dev.seeclickfix.com/v2/overview/authentication/
+summary:
+  types: [http, oauth2]
+  http_schemes: [bearer]
+  oauth2_flows: [authorizationCode]
+schemes:
+- name: PersonalAccessToken
+  type: http
+  scheme: bearer
+  description: >-
+    Token authentication for API access. A Personal Access Token (a Bearer
+    token) is created under Password & Security > Personal Access Token and
+    sent on every request as an Authorization header. Format:
+    "Authorization: Bearer [token]".
+  header: 'Authorization: Bearer [token]'
+  sources: [https://dev.seeclickfix.com/v2/overview/authentication/]
+- name: OAuth2
+  type: oauth2
+  description: >-
+    OAuth2 authorization code flow (RFC 6749, implemented with Doorkeeper) for
+    client applications used by multiple users where end-user credentials must
+    not be shared with the client. Applications must be registered with
+    SeeClickFix (email request) to receive an application id and callback URI
+    before use.
+  flows:
+  - flow: authorizationCode
+    registration: manual (email SeeClickFix developer support to register an app)
+  sources: [https://dev.seeclickfix.com/v2/overview/authentication/]
+- name: api_key
+  type: apiKey
+  in: query
+  parameter: api_key
+  description: >-
+    Query-parameter API key declared by the Open311 GeoReport v2 spec published
+    in the SeeClickFix GitHub org; applies to the Open311-compatible endpoint at
+    seeclickfix.com/open311.
+  sources: [openapi/civicplus-seeclickfix-open311-openapi-original.yml]
