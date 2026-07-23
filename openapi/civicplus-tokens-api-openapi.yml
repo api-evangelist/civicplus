@@ -1,0 +1,77 @@
+swagger: '2.0'
+info:
+  version: '2.0'
+  title: Open311 GeoReport Request Tokens API
+  description: Open311 allows you to get/post civic information of cities via a unified interface. The GeoReport part allows you to submit and view issues at the public local space
+  termsOfService: (depends on server instance for example NYC http://dev.cityofchicago.org/docs/api/tos)
+  contact:
+    name: Open311 community
+    url: http://wiki.open311.org/GeoReport_v2/
+    email: discuss@lists.open311.org
+  license:
+    name: CC BY 3.0
+    url: http://creativecommons.org/licenses/by/3.0/
+consumes:
+- application/x-www-form-urlencoded
+produces:
+- application/json
+- text/xml
+tags:
+- name: Tokens
+paths:
+  /tokens/{token_id}.{response_format}:
+    get:
+      summary: Id of service_request via token
+      description: Get the service_request_id from a temporary token. This is unnecessary if the response from creating a service request does not contain a token.
+      parameters:
+      - $ref: '#/parameters/jurisdiction_id'
+      - $ref: '#/parameters/response_format'
+      - name: token_id
+        in: path
+        required: true
+        type: string
+        format: uid
+      responses:
+        200:
+          description: returns tuple request ID, token
+          schema:
+            $ref: '#/definitions/TokenResponse'
+          examples:
+            application/xml:
+              service_requests:
+                request:
+                  service_request_id: 638344
+                  token: 12345
+      tags:
+      - Tokens
+definitions:
+  TokenResponse:
+    description: Resolves temporary token to ID of the request
+    properties:
+      service_request_id:
+        type: string
+        format: uid
+        description: Unique ID of the service request created.
+      token:
+        type: string
+        format: uid
+        description: Use this to call GET service_request_id
+parameters:
+  response_format:
+    name: response_format
+    in: path
+    required: true
+    type: string
+    format: uid
+  jurisdiction_id:
+    name: jurisdiction_id
+    in: query
+    description: <?>
+    required: true
+    type: string
+    format: uid
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: api_key
+    in: query

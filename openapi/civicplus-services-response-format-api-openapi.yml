@@ -1,0 +1,107 @@
+swagger: '2.0'
+info:
+  version: '2.0'
+  title: Open311 GeoReport Request Services.{response Format} API
+  description: Open311 allows you to get/post civic information of cities via a unified interface. The GeoReport part allows you to submit and view issues at the public local space
+  termsOfService: (depends on server instance for example NYC http://dev.cityofchicago.org/docs/api/tos)
+  contact:
+    name: Open311 community
+    url: http://wiki.open311.org/GeoReport_v2/
+    email: discuss@lists.open311.org
+  license:
+    name: CC BY 3.0
+    url: http://creativecommons.org/licenses/by/3.0/
+consumes:
+- application/x-www-form-urlencoded
+produces:
+- application/json
+- text/xml
+tags:
+- name: Services.{response Format}
+paths:
+  /services.{response_format}:
+    get:
+      summary: service types
+      description: List acceptable service request types and their associated service codes. These request types can be unique to the city/jurisdiction.
+      parameters:
+      - $ref: '#/parameters/jurisdiction_id'
+      - $ref: '#/parameters/response_format'
+      responses:
+        200:
+          description: ok
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Service'
+          examples:
+            application/xml:
+              services:
+                service:
+                  service_code: 3
+                  service_name: Curb or curb ramp defect
+                  description: Sidewalk curb or ramp has problems such as cracking, missing pieces, holes, and/or chipped curb.
+                  metadata: true
+                  type: realtime
+                  keywords: lorem, ipsum, dolor
+                  group: street
+        400:
+          description: The URL request is invalid or service is not running or reachable. Client should notify us after checking URL
+        404:
+          description: jurisdiction_id provided was not found (specify in error response).
+      tags:
+      - Services.{response Format}
+definitions:
+  Service:
+    description: A single service (type) offered via Open311
+    required:
+    - service_code
+    - service_name
+    - type
+    properties:
+      service_code:
+        type: string
+        format: uid
+        description: unique identifier for the service request type
+      service_name:
+        type: string
+        description: human readable name of the service request type
+      description:
+        type: string
+      metadata:
+        type: boolean
+        description: Are there additional form fields for this service type? If true use GET service definition for that one
+      type:
+        type: string
+        description: Possible values realtime, batch, blackbox
+        enum:
+        - realtime
+        - batch
+        - blackbox
+      keywords:
+        type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: list of keywords or tags seperated by comma
+      group:
+        type: string
+        description: Category or group to cluster different request types e.g. “sanitation”
+parameters:
+  response_format:
+    name: response_format
+    in: path
+    required: true
+    type: string
+    format: uid
+  jurisdiction_id:
+    name: jurisdiction_id
+    in: query
+    description: <?>
+    required: true
+    type: string
+    format: uid
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: api_key
+    in: query

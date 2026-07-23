@@ -1,0 +1,150 @@
+swagger: '2.0'
+info:
+  version: '2.0'
+  title: Open311 GeoReport Request Services API
+  description: Open311 allows you to get/post civic information of cities via a unified interface. The GeoReport part allows you to submit and view issues at the public local space
+  termsOfService: (depends on server instance for example NYC http://dev.cityofchicago.org/docs/api/tos)
+  contact:
+    name: Open311 community
+    url: http://wiki.open311.org/GeoReport_v2/
+    email: discuss@lists.open311.org
+  license:
+    name: CC BY 3.0
+    url: http://creativecommons.org/licenses/by/3.0/
+consumes:
+- application/x-www-form-urlencoded
+produces:
+- application/json
+- text/xml
+tags:
+- name: Services
+paths:
+  /services/{service_code}.{response_format}:
+    get:
+      summary: (extended) definition of a service type
+      description: Define attributes associated with a service code. These attributes can be unique to the city/jurisdiction.
+      parameters:
+      - $ref: '#/parameters/jurisdiction_id'
+      - $ref: '#/parameters/response_format'
+      - name: service_code
+        in: path
+        required: true
+        type: string
+        format: uid
+      responses:
+        200:
+          description: returns ServiceDefinition for the Service
+          schema:
+            $ref: '#/definitions/ServiceDefinition'
+          examples:
+            application/xml:
+              service_definition:
+                service_code: DMV66
+                attributes:
+                  attribute:
+                    variable: true
+                    code: WHISHETN
+                    datatype: singlevaluelist
+                    required: true
+                    datatype_description: null
+                    order: 1
+                    description: What is the ticket/tag/DL number?
+                    values:
+                      value:
+                        key: 124
+                        name: Chrysler
+        400:
+          description: service_code or jurisdiction_id provided were not found (specify in erraddor response)
+        404:
+          description: service_code or jurisdiction_id provided were not found (specify in error response)
+      tags:
+      - Services
+definitions:
+  ServiceDefinition:
+    description: Attributes associated with a service code. These attributes can be unique to the city/jurisdiction.
+    required:
+    - service_code
+    - attributes
+    properties:
+      service_code:
+        type: string
+        format: uid
+        description: unique identifier for the service request type
+      attributes:
+        type: array
+        items:
+          $ref: '#/definitions/ServiceAttribute'
+  AttributeValue:
+    description: Possible value for ServiceAttribute that defines lists
+    required:
+    - key
+    - name
+    properties:
+      key:
+        type: string
+        format: uid
+        description: Unique identifier associated with an option for singlevaluelist or multivaluelist (analogous to the value attribute in an html option tag).
+      name:
+        type: string
+        description: Human readable title of an option for singlevaluelist or multivaluelist (analogous to the innerhtml text node of an html option tag).
+  ServiceAttribute:
+    description: A single attribute extension for a service
+    required:
+    - variable
+    - code
+    - datatype
+    - required
+    properties:
+      variable:
+        type: boolean
+        description: If only used to present information to the user within the description field or if that user input is needed
+      code:
+        type: string
+        format: uid
+        description: Unique identifier for the attribute
+      datatype:
+        type: string
+        enum:
+        - string
+        - number
+        - datetime
+        - text
+        - singlevaluelist
+        - multivaluelist
+        description: Type of field used for user input. According widgets will be picked for user inputs
+      required:
+        type: boolean
+        description: If attributes value required to submit service request
+      datatype_description:
+        type: string
+        description: Description of the datatype which helps the user provide their input
+      order:
+        type: integer
+        format: uint
+        description: Sort order that the attributes will be presented to the user. 1 is shown first in the list.
+      description:
+        type: string
+        description: description of the attribute field with instructions for the user to find and identify the requested information
+      values:
+        type: array
+        items:
+          $ref: '#/definitions/AttributeValue'
+parameters:
+  response_format:
+    name: response_format
+    in: path
+    required: true
+    type: string
+    format: uid
+  jurisdiction_id:
+    name: jurisdiction_id
+    in: query
+    description: <?>
+    required: true
+    type: string
+    format: uid
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: api_key
+    in: query
