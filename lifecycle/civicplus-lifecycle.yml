@@ -1,0 +1,21 @@
+generated: '2026-07-18'
+method: searched
+source: https://status.civicplus.com/
+versioning:
+  scheme: uri-path
+  current: v2
+  api: SeeClickFix API v2
+  base: https://seeclickfix.com/api/v2
+status_page: https://status.civicplus.com/
+sla:
+  uptime_target: '99.9%'
+  source: https://www.civicplus.com/security
+  notes: >-
+    CivicPlus publicly states it maintains 99.9% uptime of its solutions with
+    24/7/365 emergency support. This is a marketing/security-page commitment,
+    not a contractual SLA document.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No formal deprecation policy or RFC 8594 Sunset/Deprecation header support was found.
+deprecated_operations: []

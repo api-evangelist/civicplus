@@ -1,0 +1,35 @@
+# CivicPlus
+
+> CivicPlus is a govtech company providing an integrated platform for local, state, and education government operations — municipal websites, agenda and meeting management, recreation management, community development (permitting, licensing, code enforcement), utility billing, mass notification, public records (NextRequest), and the SeeClickFix 311 resident-request CRM. Its most developer-facing public API is the SeeClickFix API v2, which also exposes an Open311 GeoReport v2 compatible endpoint.
+
+## APIs
+
+- [SeeClickFix API v2](https://dev.seeclickfix.com/): REST API over issues, comments, users, places, questions, and answers. Base URL https://seeclickfix.com/api/v2.
+- [SeeClickFix Open311 endpoint](https://seeclickfix.com/open311): Open311 GeoReport v2 compatible interface (services, requests, tokens).
+
+## Specs
+
+- [Open311 GeoReport v2 (Swagger 2.0)](openapi/civicplus-seeclickfix-open311-openapi-original.yml)
+
+## Docs
+
+- [API v2 Overview](https://dev.seeclickfix.com/)
+- [Authentication](https://dev.seeclickfix.com/v2/overview/authentication/): Bearer Personal Access Tokens and OAuth2 authorization code flow (RFC 6749).
+- [Issues](https://dev.seeclickfix.com/v2/issues/)
+- [CivicPlus Help Center](https://civicplus.help/civicplus-help-center)
+
+## Operations
+
+- [Conventions](conventions/civicplus-conventions.yml): JSON, GeoJSON, ISO 8601, page/per_page pagination, metadata+result envelope.
+- [Errors](errors/civicplus-problem-types.yml): 400 / 422 / 500 response classes.
+- [Authentication](authentication/civicplus-authentication.yml)
+- [Sandbox](sandbox/civicplus-sandbox.yml): test.seeclickfix.com replica environment.
+- [Lifecycle](lifecycle/civicplus-lifecycle.yml): status page https://status.civicplus.com.
+
+## Company
+
+- [Website](https://www.civicplus.com/)
+- [Security](https://www.civicplus.com/security)
+- [Status](https://status.civicplus.com/)
+- [Privacy Policy](https://civicplus.help/legal-center/docs/civicplus-privacy-policy)
+- [Terms of Use](https://civicplus.help/docs/civicplus-terms-of-use)

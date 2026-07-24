@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: https://packagist.org/packages/seeclickfix/seeclickfix-php-sdk
+notes: >-
+  First-party client library for the SeeClickFix API v2 (a CivicPlus product /
+  311 CRM). Published under the seeclickfix Packagist vendor namespace and the
+  seeclickfix GitHub organization. No official npm/PyPI/NuGet/Maven client was
+  found for the SeeClickFix or other CivicPlus product APIs.
+packages:
+- language: php
+  registry: packagist
+  name: seeclickfix/seeclickfix-php-sdk
+  url: https://packagist.org/packages/seeclickfix/seeclickfix-php-sdk
+  repository: https://github.com/seeclickfix/seeclickfix-php-sdk
+  install: composer require seeclickfix/seeclickfix-php-sdk
+  license: Apache-2.0
+  official: true

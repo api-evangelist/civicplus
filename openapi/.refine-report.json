@@ -1,0 +1,22 @@
+{
+  "provider": "civicplus",
+  "sources": [
+    "civicplus-request-api-openapi.yml",
+    "civicplus-requests-response-format-api-openapi.yml",
+    "civicplus-services-api-openapi.yml",
+    "civicplus-services-response-format-api-openapi.yml",
+    "civicplus-tokens-api-openapi.yml"
+  ],
+  "outputs": [
+    "civicplus-request-api-openapi.yml",
+    "civicplus-requests-response-format-api-openapi.yml",
+    "civicplus-services-api-openapi.yml",
+    "civicplus-services-response-format-api-openapi.yml",
+    "civicplus-tokens-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

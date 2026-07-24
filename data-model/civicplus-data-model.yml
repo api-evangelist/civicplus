@@ -1,0 +1,50 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/civicplus-seeclickfix-open311-openapi-original.yml
+api: SeeClickFix Open311 GeoReport v2
+notes: >-
+  Entity graph derived from the Open311 GeoReport v2 definitions published in the
+  SeeClickFix GitHub org. Linking key is service_code (services) and
+  service_request_id / token (requests).
+entities:
+- name: Service
+  description: A single service (type) offered via Open311.
+  key: service_code
+- name: ServiceDefinition
+  description: Extended attribute definition for a service type.
+  key: service_code
+- name: ServiceAttribute
+  description: An attribute belonging to a service definition.
+  key: code
+- name: AttributeValue
+  description: A permitted value for a service attribute.
+  key: key
+- name: Request
+  description: A submitted service request (issue).
+  key: service_request_id
+- name: RequestResponse
+  description: The response wrapper returned when creating a service request.
+- name: TokenResponse
+  description: Maps a temporary token to a service_request_id.
+  key: token
+relationships:
+- from: ServiceDefinition
+  to: Service
+  type: belongs_to
+  via: service_code
+- from: ServiceDefinition
+  to: ServiceAttribute
+  type: has_many
+  via: attributes
+- from: ServiceAttribute
+  to: AttributeValue
+  type: has_many
+  via: values
+- from: Request
+  to: Service
+  type: belongs_to
+  via: service_code
+- from: TokenResponse
+  to: Request
+  type: has_one
+  via: service_request_id

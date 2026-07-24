@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: https://dev.seeclickfix.com/
+api: SeeClickFix API v2
+test_environment:
+  host: https://test.seeclickfix.com
+  base_url: https://test.seeclickfix.com/api/v2
+  description: >-
+    Testing subdomain with data replicated from production. SSL (https) is
+    available. Use this host for integration testing against the SeeClickFix
+    API v2.
+  ssl: true
+  data: replicated from production
+  verified_status: 200 (GET https://test.seeclickfix.com/api/v2/issues)
+notes: >-
+  SeeClickFix does not publish magic test identifiers or test credentials; the
+  test subdomain is a full replica environment. No test values are invented here.

@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: live probes of /.well-known/* on CivicPlus + SeeClickFix hosts
+hosts:
+- host: https://www.civicplus.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://seeclickfix.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+notes: >-
+  No /.well-known/ discovery documents are published on the CivicPlus or
+  SeeClickFix hosts (all probes returned 404). Absence recorded as valid data.

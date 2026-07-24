@@ -1,8 +1,17 @@
 aid: civicplus
 name: CivicPlus
-description: 'CivicPlus is a company surfaced as a portfolio company of insight-partners and added to
-  the API Evangelist network as a stub for enrichment. Sector: government. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  CivicPlus is a govtech company providing an integrated platform for local,
+  state, and education government operations, serving 13,000+ public-sector
+  customers. Its product suite spans municipal websites, agenda and meeting
+  management, recreation management, community development (permitting,
+  licensing, code enforcement), utility billing, mass notification, public
+  records requests (NextRequest), Municode codification, payments (CivicPlus
+  Pay), and the SeeClickFix 311 resident-request CRM. The most developer-facing
+  public interface in the CivicPlus family is the SeeClickFix API v2, a REST API
+  over civic service requests (issues), comments, users, places, and questions,
+  which additionally exposes an Open311 GeoReport v2 compatible endpoint for
+  interoperable civic-issue reporting.
 url: https://raw.githubusercontent.com/api-evangelist/civicplus/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,13 +19,134 @@ x-backed-by:
 - insight-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://www.civicplus.com/favicon.ico
 tags:
 - Company
 - Government
-apis: []
+- GovTech
+- Local Government
+- 311
+- Civic Engagement
+- Public Records
+- Service Requests
+apis:
+- aid: civicplus:civicplus-request-api
+  name: CivicPlus Request API
+  description: The Request API from CivicPlus — 1 operation(s) for request.
+  humanURL: https://dev.seeclickfix.com/
+  baseURL: https://seeclickfix.com/api/v2
+  tags:
+  - Request
+  properties:
+  - type: OpenAPI
+    url: openapi/civicplus-request-api-openapi.yml
+  - type: Documentation
+    url: https://dev.seeclickfix.com/
+  - type: APIReference
+    url: https://dev.seeclickfix.com/v2/issues/
+  - type: GettingStarted
+    url: https://dev.seeclickfix.com/v2/overview/about/
+  - type: Authentication
+    url: authentication/civicplus-authentication.yml
+  - type: Sandbox
+    url: sandbox/civicplus-sandbox.yml
+- aid: civicplus:civicplus-requests-response-format-api
+  name: CivicPlus Requests.{response Format} API
+  description: >-
+    The Requests.{response Format} API from CivicPlus — 1 operation(s) for requests.{response format}.
+  humanURL: https://dev.seeclickfix.com/
+  baseURL: https://seeclickfix.com/api/v2
+  tags:
+  - Requests.{response Format}
+  properties:
+  - type: OpenAPI
+    url: openapi/civicplus-requests-response-format-api-openapi.yml
+  - type: Documentation
+    url: https://dev.seeclickfix.com/
+  - type: APIReference
+    url: https://dev.seeclickfix.com/v2/issues/
+  - type: GettingStarted
+    url: https://dev.seeclickfix.com/v2/overview/about/
+  - type: Authentication
+    url: authentication/civicplus-authentication.yml
+  - type: Sandbox
+    url: sandbox/civicplus-sandbox.yml
+- aid: civicplus:civicplus-services-api
+  name: CivicPlus Services API
+  description: The Services API from CivicPlus — 1 operation(s) for services.
+  humanURL: https://dev.seeclickfix.com/
+  baseURL: https://seeclickfix.com/api/v2
+  tags:
+  - Services
+  properties:
+  - type: OpenAPI
+    url: openapi/civicplus-services-api-openapi.yml
+  - type: Documentation
+    url: https://dev.seeclickfix.com/
+  - type: APIReference
+    url: https://dev.seeclickfix.com/v2/issues/
+  - type: GettingStarted
+    url: https://dev.seeclickfix.com/v2/overview/about/
+  - type: Authentication
+    url: authentication/civicplus-authentication.yml
+  - type: Sandbox
+    url: sandbox/civicplus-sandbox.yml
+- aid: civicplus:civicplus-services-response-format-api
+  name: CivicPlus Services.{response Format} API
+  description: >-
+    The Services.{response Format} API from CivicPlus — 1 operation(s) for services.{response format}.
+  humanURL: https://dev.seeclickfix.com/
+  baseURL: https://seeclickfix.com/api/v2
+  tags:
+  - Services.{response Format}
+  properties:
+  - type: OpenAPI
+    url: openapi/civicplus-services-response-format-api-openapi.yml
+  - type: Documentation
+    url: https://dev.seeclickfix.com/
+  - type: APIReference
+    url: https://dev.seeclickfix.com/v2/issues/
+  - type: GettingStarted
+    url: https://dev.seeclickfix.com/v2/overview/about/
+  - type: Authentication
+    url: authentication/civicplus-authentication.yml
+  - type: Sandbox
+    url: sandbox/civicplus-sandbox.yml
+- aid: civicplus:civicplus-tokens-api
+  name: CivicPlus Tokens API
+  description: The Tokens API from CivicPlus — 1 operation(s) for tokens.
+  humanURL: https://dev.seeclickfix.com/
+  baseURL: https://seeclickfix.com/api/v2
+  tags:
+  - Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/civicplus-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://dev.seeclickfix.com/
+  - type: APIReference
+    url: https://dev.seeclickfix.com/v2/issues/
+  - type: GettingStarted
+    url: https://dev.seeclickfix.com/v2/overview/about/
+  - type: Authentication
+    url: authentication/civicplus-authentication.yml
+  - type: Sandbox
+    url: sandbox/civicplus-sandbox.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +155,52 @@ maintainers:
 common:
 - type: Website
   url: https://www.civicplus.com/
+- type: DeveloperPortal
+  url: https://dev.seeclickfix.com/
+- type: Support
+  url: https://civicplus.help/civicplus-help-center
+- type: GitHubOrganization
+  url: https://github.com/SeeClickFix
+- type: StatusPage
+  url: https://status.civicplus.com/
+- type: TermsOfService
+  url: https://civicplus.help/docs/civicplus-terms-of-use
+- type: PrivacyPolicy
+  url: https://civicplus.help/legal-center/docs/civicplus-privacy-policy
+- type: Authentication
+  url: authentication/civicplus-authentication.yml
+- type: OAuth2
+  url: authentication/civicplus-authentication.yml
+- type: Conventions
+  url: conventions/civicplus-conventions.yml
+- type: ErrorCatalog
+  url: errors/civicplus-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/civicplus-lifecycle.yml
+- type: Sandbox
+  url: sandbox/civicplus-sandbox.yml
+- type: Packages
+  url: packages/civicplus-packages.yml
+- type: SDKs
+  url: packages/civicplus-packages.yml
+- type: MCPServer
+  url: mcp/civicplus-mcp.yml
+- type: LLMsTxt
+  url: llms/civicplus-llms.txt
+- type: WellKnown
+  url: well-known/civicplus-well-known.yml
+- type: DomainSecurity
+  url: security/civicplus-domain-security.yml
+- type: Conformance
+  url: conformance/civicplus-conformance.yml
+- type: DataModel
+  url: data-model/civicplus-data-model.yml
+- type: OpenAPI
+  url: openapi/civicplus-seeclickfix-open311-openapi-original.yml
+- type: Overlay
+  url: overlays/civicplus-seeclickfix-open311-overlay.yaml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

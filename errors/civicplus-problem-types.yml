@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: https://dev.seeclickfix.com/
+api: SeeClickFix API v2
+format: json
+notes: >-
+  SeeClickFix API v2 does not use RFC 9457 application/problem+json. Errors are
+  returned as plain JSON objects. Two client-error classes and one server-error
+  class are documented.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: Invalid JSON was sent in the request body.
+  envelope: '{"request": "Unable to parse JSON"}'
+- status: 422
+  title: Unprocessable Entity
+  meaning: >-
+    Invalid or missing fields. The body is a map of field name to error message
+    (a "base" key carries non-field errors).
+  envelope: '{"email": "Can''t be blank.", "base": "You have not voted on this issue."}'
+- status: 500
+  title: Server Error
+  meaning: All server-side errors return 500.

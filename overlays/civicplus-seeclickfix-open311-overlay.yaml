@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for SeeClickFix Open311 GeoReport v2
+  version: 1.0.0
+extends: openapi/civicplus-seeclickfix-open311-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: civicplus
+    x-apievangelist-product: SeeClickFix
+    x-apievangelist-endpoint: https://seeclickfix.com/open311
+    x-apievangelist-rest-api: https://seeclickfix.com/api/v2
+    x-apievangelist-docs: https://dev.seeclickfix.com/
+- target: $.info
+  update:
+    x-apievangelist-notes: >-
+      The upstream Swagger 2.0 is the generic Open311 GeoReport v2 community
+      definition (CC BY 3.0) hosted in the SeeClickFix GitHub org; the richer,
+      first-party SeeClickFix API v2 (issues, comments, users, places,
+      questions) is documented at dev.seeclickfix.com but not published as
+      OpenAPI.

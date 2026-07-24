@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: searched
+source: https://dev.seeclickfix.com/
+api: SeeClickFix API v2
+authentication:
+  styles: [bearer-token, oauth2-authorization-code]
+  ref: authentication/civicplus-authentication.yml
+data_format:
+  request: application/x-www-form-urlencoded or application/json
+  response: application/json
+  geospatial: GeoJSON (all coordinates assumed WGS84)
+pagination:
+  style: page-number
+  params:
+    page: 'page number to return (default 1)'
+    per_page: 'items per page (default 20, maximum 100; detailed requests limited to 20)'
+  response_envelope:
+    metadata: pagination / api-limit / query metadata (may be null)
+    result: the returned item or collection
+time_format:
+  scheme: ISO 8601
+  example: 'YYYY-MM-DDTHH:MM:SSZ'
+blank_fields: included as null rather than omitted
+redirects: >-
+  API v2 uses HTTP redirection where appropriate (301/302); clients must follow
+  Location headers.
+conditional_requests: supported (per the Conditional requests docs section)
+versioning:
+  scheme: uri-path
+  current: v2
+  base: https://seeclickfix.com/api/v2
+idempotency:
+  supported: false
+  notes: No idempotency-key mechanism is documented for the SeeClickFix API v2.
+error_envelope:
+  ref: errors/civicplus-problem-types.yml
+  shape: >-
+    Errors return a JSON object; 400 returns {"request": "..."} and 422 returns
+    a field->message map (e.g. {"email": "Can't be blank."}).
+cross_links:
+  errors: errors/civicplus-problem-types.yml
+  lifecycle: lifecycle/civicplus-lifecycle.yml
+  authentication: authentication/civicplus-authentication.yml
+  sandbox: sandbox/civicplus-sandbox.yml

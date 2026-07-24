@@ -1,0 +1,26 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/civicplus-seeclickfix-open311-openapi-original.yml + https://dev.seeclickfix.com/
+api: SeeClickFix API v2 / Open311 GeoReport v2
+standards:
+- id: open311-georeport-v2
+  conforms: true
+  evidence: >-
+    SeeClickFix publishes and operates an Open311 GeoReport v2 compatible
+    endpoint at https://seeclickfix.com/open311 with an Open311 GeoReport v2
+    Swagger definition in its GitHub org.
+- id: oauth2
+  conforms: true
+  evidence: SeeClickFix API v2 supports OAuth2 authorization code flow (RFC 6749, Doorkeeper).
+- id: geojson
+  conforms: true
+  evidence: Geographic objects are represented as GeoJSON (RFC 7946); coordinates are WGS84.
+- id: iso8601
+  conforms: true
+  evidence: All timestamps returned in ISO 8601 (YYYY-MM-DDTHH:MM:SSZ).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use plain JSON objects, not application/problem+json.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: No /.well-known/security.txt is published.
