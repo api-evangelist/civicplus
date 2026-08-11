@@ -196,7 +196,7 @@ common:
 - type: DataModel
   url: data-model/civicplus-data-model.yml
 - type: OpenAPI
-  url: openapi/civicplus-seeclickfix-open311-openapi-original.yml
+  url: openapi/_original/civicplus-seeclickfix-open311-openapi-original.yml
 - type: Overlay
   url: overlays/civicplus-seeclickfix-open311-overlay.yaml
 x-enrichment:
