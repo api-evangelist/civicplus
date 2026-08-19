@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open311 GeoReport Request Services API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "(extended) definition of a service type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/services/:service_code.:response_format",
+            "params": [
+              {
+                "name": "jurisdiction_id",
+                "value": "",
+                "type": "query",
+                "description": "<?>"
+              },
+              {
+                "name": "response_format",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "service_code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Define attributes associated with a service code. These attributes can be unique to the city/jurisdiction."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

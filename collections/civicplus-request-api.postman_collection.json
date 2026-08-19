@@ -1,0 +1,136 @@
+{
+  "item": [
+    {
+      "id": "5e5468d4-a7e7-43e9-baca-8be6cc45e0af",
+      "name": "Request",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9dd541e3-a5d1-4976-b2f3-34e6ffeef586",
+          "name": "current status",
+          "request": {
+            "name": "current status",
+            "description": {
+              "content": "Query the current status of an individual request",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "request",
+                "{{service_request_id}}.{{response_format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction_id",
+                  "value": "<uid>",
+                  "description": "(Required) <?>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5afbe190-b87e-4629-a40f-62e0dd330b2e",
+              "name": "success returns request details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "request",
+                    "{{service_request_id}}.{{response_format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction_id",
+                      "value": "<uid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"service_request_id\": \"string\",\n  \"status\": \"open\",\n  \"service_code\": \"string\",\n  \"requested_datetime\": \"1998-10-27T08:13:47.996Z\",\n  \"status_notes\": \"string\",\n  \"service_name\": \"string\",\n  \"description\": \"string\",\n  \"agency_responsible\": \"string\",\n  \"service_notice\": \"string\",\n  \"updated_datetime\": \"1993-11-27T08:21:43.698Z\",\n  \"expected_datetime\": \"1975-12-17T21:11:07.668Z\",\n  \"address\": \"string\",\n  \"address_id\": \"string\",\n  \"zipcode\": \"string\",\n  \"lat\": 5987.994118017008,\n  \"long\": 1047.5378699255966,\n  \"media_url\": \"http://uDDWeQET.fitjoLdakCSDps\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Is specified in the main URL path rather than an added query string parameter.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uid>",
+      "key": "service_request_id"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uid>",
+      "key": "response_format"
+    }
+  ],
+  "info": {
+    "_postman_id": "14432cfe-202e-4a3f-8e46-66b2b0f30137",
+    "name": "Open311 GeoReport Request API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open311 allows you to get/post civic information of cities via a unified interface. The GeoReport part allows you to submit and view issues at the public local space\n\nContact Support:\n Name: Open311 community\n Email: discuss@lists.open311.org",
+      "type": "text/plain"
+    }
+  }
+}

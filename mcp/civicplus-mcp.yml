@@ -2,10 +2,8 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: https://dev.seeclickfix.com/
-notes: >-
-  No official hosted/remote MCP server was found for CivicPlus or SeeClickFix.
-  This is a candidate tool list derived from documented SeeClickFix API v2
-  operations; not published by the provider.
+notes: No official hosted/remote MCP server was found for CivicPlus or SeeClickFix. This is a candidate
+  tool list derived from documented SeeClickFix API v2 operations; not published by the provider.
 server:
   name: seeclickfix
   transport: http
@@ -35,3 +33,9 @@ tools:
 - name: create_open311_request
   description: Submit an Open311 GeoReport service request.
   source_operation: POST https://seeclickfix.com/open311/v2/requests.json
+deployment:
+  mode: none
+  verified: derived
+  tools: 8
+  checked: '2026-08-12'
+  source: catalog MCP census

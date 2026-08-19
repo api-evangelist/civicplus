@@ -1,0 +1,452 @@
+{
+  "item": [
+    {
+      "id": "6c36848a-7930-4b02-956f-5cae83e70b36",
+      "name": "Requests.{response Format}",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5bd6f482-7910-4df5-b216-5727709caee2",
+          "name": "requests",
+          "request": {
+            "name": "requests",
+            "description": {
+              "content": "Query the current status of multiple requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests.{{response_format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction_id",
+                  "value": "<uid>",
+                  "description": "(Required) <?>"
+                },
+                {
+                  "disabled": false,
+                  "key": "service_request_id",
+                  "value": "<uid>",
+                  "description": "To call multiple Service Requests at once, multiple service_request_id can be declared; comma delimited.This overrides all other arguments."
+                },
+                {
+                  "disabled": false,
+                  "key": "service_code",
+                  "value": "<string>",
+                  "description": "Specify the service type by calling the unique ID of the service_code."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<dateTime>",
+                  "description": "Earliest datetime to include in search. When provided with end_date, allows one to search for requests which have a requested_datetime that matches a given range, but may not span more than 90 days."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<dateTime>",
+                  "description": "Latest datetime to include in search. When provided with start_date, allows one to search for requests which have a requested_datetime that matches a given range, but may not span more than 90 days."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Allows one to search for requests which have a specific status. This defaults to all statuses; can be declared multiple times, comma delimited."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9293d10b-75bc-4d02-a853-ba57b4aaa2e2",
+              "name": "List of matching requests (Default query limit is a span of 90 days or first 1000 requests returned, whichever is smallest).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests.{{response_format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction_id",
+                      "value": "<uid>"
+                    },
+                    {
+                      "key": "service_request_id",
+                      "value": "<uid>"
+                    },
+                    {
+                      "key": "service_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"service_request_id\": \"string\",\n    \"status\": \"open\",\n    \"service_code\": \"string\",\n    \"requested_datetime\": \"2021-11-28T00:51:28.386Z\",\n    \"status_notes\": \"string\",\n    \"service_name\": \"string\",\n    \"description\": \"string\",\n    \"agency_responsible\": \"string\",\n    \"service_notice\": \"string\",\n    \"updated_datetime\": \"2013-08-10T17:27:05.081Z\",\n    \"expected_datetime\": \"1989-02-23T23:14:53.294Z\",\n    \"address\": \"string\",\n    \"address_id\": \"string\",\n    \"zipcode\": \"string\",\n    \"lat\": 5263.865243685634,\n    \"long\": 1304.1112238511078,\n    \"media_url\": \"https://JzhRnPgXoNzQjPKtSooqgsaowlKz.ttZsEtr.4UcEur\"\n  },\n  {\n    \"service_request_id\": \"string\",\n    \"status\": \"open\",\n    \"service_code\": \"string\",\n    \"requested_datetime\": \"2009-07-05T04:31:52.635Z\",\n    \"status_notes\": \"string\",\n    \"service_name\": \"string\",\n    \"description\": \"string\",\n    \"agency_responsible\": \"string\",\n    \"service_notice\": \"string\",\n    \"updated_datetime\": \"1964-09-10T01:44:11.349Z\",\n    \"expected_datetime\": \"1978-10-09T08:12:03.581Z\",\n    \"address\": \"string\",\n    \"address_id\": \"string\",\n    \"zipcode\": \"string\",\n    \"lat\": 1795.4945742571372,\n    \"long\": 2327.4018467707315,\n    \"media_url\": \"http://pyEGCuE.ejklAzLsVwj8a-nd\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "657542df-7634-49a5-9e7f-3b9c5fe1c126",
+              "name": "jurisdiction_id was not provided (specified in error response) or General Service error (Any failure during service query processing. Client will have to notify us)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests.{{response_format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction_id",
+                      "value": "<uid>"
+                    },
+                    {
+                      "key": "service_request_id",
+                      "value": "<uid>"
+                    },
+                    {
+                      "key": "service_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ba3486a-5c36-439f-9b6c-d5b9e49dc3cf",
+              "name": "jurisdiction_id not found (specified in error response)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests.{{response_format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction_id",
+                      "value": "<uid>"
+                    },
+                    {
+                      "key": "service_request_id",
+                      "value": "<uid>"
+                    },
+                    {
+                      "key": "service_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5b5a178-8490-4307-8843-95420e5fe611",
+          "name": "Create service request",
+          "request": {
+            "name": "Create service request",
+            "description": {
+              "content": "Submit a new request for with specific details of a single service. Must provide a location via lat/long or address_string or address_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "requests.{{response_format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction_id",
+                  "value": "<uid>",
+                  "description": "(Required) <?>"
+                },
+                {
+                  "disabled": false,
+                  "key": "service_code",
+                  "value": "<uid>",
+                  "description": "(Required) <?>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>",
+                  "description": "WGS-84 latitude"
+                },
+                {
+                  "disabled": false,
+                  "key": "long",
+                  "value": "<double>",
+                  "description": "WGS-84 longitude"
+                },
+                {
+                  "disabled": false,
+                  "key": "address_string",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "address_id",
+                  "value": "<uid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "attribute",
+                  "value": "<string>",
+                  "description": "array of key/value responses based on Service Definitions."
+                },
+                {
+                  "disabled": false,
+                  "key": "attribute",
+                  "value": "<string>",
+                  "description": "array of key/value responses based on Service Definitions."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api_key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e639d81b-f639-486e-b572-ddb5bc3b8ced",
+              "name": "success returns an tracking-id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "requests.{{response_format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction_id",
+                      "value": "<uid>"
+                    },
+                    {
+                      "key": "service_code",
+                      "value": "<uid>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "long",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "address_string",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address_id",
+                      "value": "<uid>"
+                    },
+                    {
+                      "key": "attribute",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attribute",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"service_request_id\": \"string\",\n    \"token\": \"string\",\n    \"service_notice\": \"string\",\n    \"account_id\": \"string\"\n  },\n  {\n    \"service_request_id\": \"string\",\n    \"token\": \"string\",\n    \"service_notice\": \"string\",\n    \"account_id\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uid>",
+      "key": "response_format"
+    }
+  ],
+  "info": {
+    "_postman_id": "ed28a24c-202d-40be-9e69-91e1de5c2ac1",
+    "name": "Open311 GeoReport Request Requests.{response Format} API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open311 allows you to get/post civic information of cities via a unified interface. The GeoReport part allows you to submit and view issues at the public local space\n\nContact Support:\n Name: Open311 community\n Email: discuss@lists.open311.org",
+      "type": "text/plain"
+    }
+  }
+}

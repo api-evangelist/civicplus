@@ -1,0 +1,136 @@
+{
+  "item": [
+    {
+      "id": "2c892100-ce3e-4ab3-b88b-2ce27be12155",
+      "name": "Tokens",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ad2acae5-784e-41cf-bf73-857e6f8d75c7",
+          "name": "Id of service_request via token",
+          "request": {
+            "name": "Id of service_request via token",
+            "description": {
+              "content": "Get the service_request_id from a temporary token. This is unnecessary if the response from creating a service request does not contain a token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tokens",
+                "{{token_id}}.{{response_format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction_id",
+                  "value": "<uid>",
+                  "description": "(Required) <?>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "683bc766-0628-4347-bccb-c4f5cb473151",
+              "name": "returns tuple request ID, token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens",
+                    "{{token_id}}.{{response_format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction_id",
+                      "value": "<uid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"service_request_id\": \"string\",\n  \"token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uid>",
+      "key": "token_id"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uid>",
+      "key": "response_format"
+    }
+  ],
+  "info": {
+    "_postman_id": "1e959879-97fa-4417-8f99-ae4af955f8d7",
+    "name": "Open311 GeoReport Request Tokens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open311 allows you to get/post civic information of cities via a unified interface. The GeoReport part allows you to submit and view issues at the public local space\n\nContact Support:\n Name: Open311 community\n Email: discuss@lists.open311.org",
+      "type": "text/plain"
+    }
+  }
+}

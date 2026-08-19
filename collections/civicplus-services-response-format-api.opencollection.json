@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open311 GeoReport Request Services.{response Format} API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Services.{response Format}",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "service types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/services.:response_format",
+            "params": [
+              {
+                "name": "jurisdiction_id",
+                "value": "",
+                "type": "query",
+                "description": "<?>"
+              },
+              {
+                "name": "response_format",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List acceptable service request types and their associated service codes. These request types can be unique to the city/jurisdiction."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

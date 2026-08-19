@@ -1,0 +1,206 @@
+{
+  "item": [
+    {
+      "id": "06921871-074a-4795-a33e-c0774ac3c553",
+      "name": "Services",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fcb268e2-ad24-4fa2-93d0-a9409a52efdb",
+          "name": "(extended) definition of a service type",
+          "request": {
+            "name": "(extended) definition of a service type",
+            "description": {
+              "content": "Define attributes associated with a service code. These attributes can be unique to the city/jurisdiction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                "{{service_code}}.{{response_format}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "jurisdiction_id",
+                  "value": "<uid>",
+                  "description": "(Required) <?>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b23d698a-d46c-4663-a55c-f2a391ff3103",
+              "name": "returns ServiceDefinition for the Service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    "{{service_code}}.{{response_format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction_id",
+                      "value": "<uid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"service_code\": \"string\",\n  \"attributes\": [\n    {\n      \"variable\": true,\n      \"code\": \"string\",\n      \"datatype\": \"multivaluelist\",\n      \"required\": false,\n      \"datatype_description\": \"string\",\n      \"order\": 6995,\n      \"description\": \"string\",\n      \"values\": [\n        {\n          \"key\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"name\": \"string\"\n        }\n      ]\n    },\n    {\n      \"variable\": true,\n      \"code\": \"string\",\n      \"datatype\": \"multivaluelist\",\n      \"required\": true,\n      \"datatype_description\": \"string\",\n      \"order\": 3042,\n      \"description\": \"string\",\n      \"values\": [\n        {\n          \"key\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"name\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2c8f677-2f4b-4fb0-b584-49eadd72b45e",
+              "name": "service_code or jurisdiction_id provided were not found (specify in erraddor response)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    "{{service_code}}.{{response_format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction_id",
+                      "value": "<uid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b39d04e-b393-4e9f-a5f5-9ec4f28678cf",
+              "name": "service_code or jurisdiction_id provided were not found (specify in error response)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    "{{service_code}}.{{response_format}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "jurisdiction_id",
+                      "value": "<uid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uid>",
+      "key": "service_code"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uid>",
+      "key": "response_format"
+    }
+  ],
+  "info": {
+    "_postman_id": "56fd729c-aa86-4bad-b3b6-cd21aed2729b",
+    "name": "Open311 GeoReport Request Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open311 allows you to get/post civic information of cities via a unified interface. The GeoReport part allows you to submit and view issues at the public local space\n\nContact Support:\n Name: Open311 community\n Email: discuss@lists.open311.org",
+      "type": "text/plain"
+    }
+  }
+}

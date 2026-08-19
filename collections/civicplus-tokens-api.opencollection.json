@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open311 GeoReport Request Tokens API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Id of service_request via token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tokens/:token_id.:response_format",
+            "params": [
+              {
+                "name": "jurisdiction_id",
+                "value": "",
+                "type": "query",
+                "description": "<?>"
+              },
+              {
+                "name": "response_format",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "token_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the service_request_id from a temporary token. This is unnecessary if the response from creating a service request does not contain a token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
