@@ -71,7 +71,8 @@ apis:
     The Requests.{response Format} API from CivicPlus — 1 operation(s) for requests.{response format}.
   humanURL: https://dev.seeclickfix.com/
   baseURL: https://seeclickfix.com/api/v2
-  tags:
+  tags: []
+  tags_raw:
   - Requests.{response Format}
   properties:
   - type: OpenAPI
@@ -112,7 +113,8 @@ apis:
     The Services.{response Format} API from CivicPlus — 1 operation(s) for services.{response format}.
   humanURL: https://dev.seeclickfix.com/
   baseURL: https://seeclickfix.com/api/v2
-  tags:
+  tags: []
+  tags_raw:
   - Services.{response Format}
   properties:
   - type: OpenAPI
