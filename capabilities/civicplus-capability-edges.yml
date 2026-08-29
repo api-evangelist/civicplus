@@ -1,0 +1,56 @@
+slug: civicplus
+provider: CivicPlus
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Public Sector & Government
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Requests.{response Format}
+  spec_file: civicplus-requests-response-format-api-openapi.yml
+  capability_id: BC-3220.40
+  capability_id_l1: BC-3220
+  capability_name: Service Request and Inquiry Handling
+  confidence: 0.88
+  evidence: POST /requests.{response_format}  Create service request
+  reason: Creating and listing citizen service requests to a local government via Open311 is squarely
+    service request and inquiry handling within citizen/constituent service management.
+- tag: Request
+  spec_file: civicplus-request-api-openapi.yml
+  capability_id: BC-3220.40
+  capability_id_l1: BC-3220
+  capability_name: Service Request and Inquiry Handling
+  confidence: 0.85
+  evidence: 'GET /request/{service_request_id}.{response_format}  current status; schema: Request — "Open311
+    allows you to get/post civic information of cities ... submit and view issues at the public local
+    space"'
+  reason: Open311 service requests are citizen-reported issues to a municipality; retrieving the current
+    status of a service request is handling of citizen service requests/inquiries.
+- tag: Services
+  spec_file: civicplus-services-api-openapi.yml
+  capability_id: BC-3220.40
+  capability_id_l1: BC-3220
+  capability_name: Service Request and Inquiry Handling
+  confidence: 0.7
+  evidence: 'GET /services/{service_code}.{response_format}  (extended) definition of a service type;
+    schemas: ServiceDefinition, ServiceAttribute'
+  reason: Defines the request types (and their required attributes) that citizens can submit against —
+    the service catalogue underpinning Open311 citizen request intake. Slight ambiguity on sub-capability
+    (catalogue definition vs. handling), hence moderate confidence.
+- tag: Services.{response Format}
+  spec_file: civicplus-services-response-format-api-openapi.yml
+  capability_id: BC-3220.40
+  capability_id_l1: BC-3220
+  capability_name: Service Request and Inquiry Handling
+  confidence: 0.7
+  evidence: 'GET /services.{response_format}  service types; schema: Service'
+  reason: Lists the municipal service request types available to citizens through the Open311 channel;
+    supports citizen request intake. Confidence moderated because it is catalogue metadata rather than
+    request processing itself.

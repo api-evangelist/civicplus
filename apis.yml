@@ -167,6 +167,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/civicplus-capability-edges.yml
+  name: CivicPlus Business Capability Map
 - type: Website
   url: https://www.civicplus.com/
 - type: DeveloperPortal
