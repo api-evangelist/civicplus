@@ -1,11 +1,7 @@
 {
   "provider": "civicplus",
   "sources": [
-    "civicplus-request-api-openapi.yml",
-    "civicplus-requests-response-format-api-openapi.yml",
-    "civicplus-services-api-openapi.yml",
-    "civicplus-services-response-format-api-openapi.yml",
-    "civicplus-tokens-api-openapi.yml"
+    "_original/civicplus-seeclickfix-open311-openapi-original.yml"
   ],
   "outputs": [
     "civicplus-request-api-openapi.yml",
@@ -17,6 +13,27 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "civicplus-seeclickfix-open311-openapi-original.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "civicplus-seeclickfix-open311-openapi-original.yml: tagged paths GET /requests.{response_format} -> Requests.{response Format}",
+    "civicplus-seeclickfix-open311-openapi-original.yml: tagged paths POST /requests.{response_format} -> Requests.{response Format}",
+    "civicplus-seeclickfix-open311-openapi-original.yml: tagged paths GET /request/{service_request_id}.{response_format} -> Request",
+    "civicplus-seeclickfix-open311-openapi-original.yml: tagged paths GET /services.{response_format} -> Services.{response Format}",
+    "civicplus-seeclickfix-open311-openapi-original.yml: tagged paths GET /services/{service_code}.{response_format} -> Services",
+    "civicplus-seeclickfix-open311-openapi-original.yml: tagged paths GET /tokens/{token_id}.{response_format} -> Tokens",
+    "civicplus-seeclickfix-open311-openapi-original.yml: declared missing tag: Request",
+    "civicplus-seeclickfix-open311-openapi-original.yml: declared missing tag: Requests.{response Format}",
+    "civicplus-seeclickfix-open311-openapi-original.yml: declared missing tag: Services",
+    "civicplus-seeclickfix-open311-openapi-original.yml: declared missing tag: Services.{response Format}",
+    "civicplus-seeclickfix-open311-openapi-original.yml: declared missing tag: Tokens",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "civicplus-request-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "civicplus-requests-response-format-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "civicplus-services-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "civicplus-services-response-format-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "civicplus-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
