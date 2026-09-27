@@ -46,37 +46,7 @@ paths:
       operationId: getServicesByServiceCode}{responseFormat
       x-operation-id-source: derived
 components:
-  parameters:
-    response_format:
-      name: response_format
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uid
-    jurisdiction_id:
-      name: jurisdiction_id
-      in: query
-      description: <?>
-      required: true
-      schema:
-        type: string
-        format: uid
   schemas:
-    ServiceDefinition:
-      description: Attributes associated with a service code. These attributes can be unique to the city/jurisdiction.
-      required:
-      - service_code
-      - attributes
-      properties:
-        service_code:
-          type: string
-          format: uid
-          description: unique identifier for the service request type
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceAttribute'
     ServiceAttribute:
       description: A single attribute extension for a service
       required:
@@ -119,6 +89,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AttributeValue'
+    ServiceDefinition:
+      description: Attributes associated with a service code. These attributes can be unique to the city/jurisdiction.
+      required:
+      - service_code
+      - attributes
+      properties:
+        service_code:
+          type: string
+          format: uid
+          description: unique identifier for the service request type
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceAttribute'
     AttributeValue:
       description: Possible value for ServiceAttribute that defines lists
       required:
@@ -132,6 +116,22 @@ components:
         name:
           type: string
           description: Human readable title of an option for singlevaluelist or multivaluelist (analogous to the innerhtml text node of an html option tag).
+  parameters:
+    jurisdiction_id:
+      name: jurisdiction_id
+      in: query
+      description: <?>
+      required: true
+      schema:
+        type: string
+        format: uid
+    response_format:
+      name: response_format
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uid
   securitySchemes:
     api_key:
       type: apiKey

@@ -44,6 +44,22 @@ paths:
       operationId: getServices{responseFormat}
       x-operation-id-source: derived
 components:
+  parameters:
+    jurisdiction_id:
+      name: jurisdiction_id
+      in: query
+      description: <?>
+      required: true
+      schema:
+        type: string
+        format: uid
+    response_format:
+      name: response_format
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uid
   schemas:
     Service:
       description: A single service (type) offered via Open311
@@ -80,22 +96,6 @@ components:
         group:
           type: string
           description: Category or group to cluster different request types e.g. “sanitation”
-  parameters:
-    response_format:
-      name: response_format
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uid
-    jurisdiction_id:
-      name: jurisdiction_id
-      in: query
-      description: <?>
-      required: true
-      schema:
-        type: string
-        format: uid
   securitySchemes:
     api_key:
       type: apiKey
