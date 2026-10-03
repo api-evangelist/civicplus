@@ -46,7 +46,36 @@ paths:
       operationId: getServicesByServiceCode}{responseFormat
       x-operation-id-source: derived
 components:
+  parameters:
+    response_format:
+      name: response_format
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uid
+    jurisdiction_id:
+      name: jurisdiction_id
+      in: query
+      description: <?>
+      required: true
+      schema:
+        type: string
+        format: uid
   schemas:
+    AttributeValue:
+      description: Possible value for ServiceAttribute that defines lists
+      required:
+      - key
+      - name
+      properties:
+        key:
+          type: string
+          format: uid
+          description: Unique identifier associated with an option for singlevaluelist or multivaluelist (analogous to the value attribute in an html option tag).
+        name:
+          type: string
+          description: Human readable title of an option for singlevaluelist or multivaluelist (analogous to the innerhtml text node of an html option tag).
     ServiceAttribute:
       description: A single attribute extension for a service
       required:
@@ -103,35 +132,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ServiceAttribute'
-    AttributeValue:
-      description: Possible value for ServiceAttribute that defines lists
-      required:
-      - key
-      - name
-      properties:
-        key:
-          type: string
-          format: uid
-          description: Unique identifier associated with an option for singlevaluelist or multivaluelist (analogous to the value attribute in an html option tag).
-        name:
-          type: string
-          description: Human readable title of an option for singlevaluelist or multivaluelist (analogous to the innerhtml text node of an html option tag).
-  parameters:
-    jurisdiction_id:
-      name: jurisdiction_id
-      in: query
-      description: <?>
-      required: true
-      schema:
-        type: string
-        format: uid
-    response_format:
-      name: response_format
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uid
   securitySchemes:
     api_key:
       type: apiKey
